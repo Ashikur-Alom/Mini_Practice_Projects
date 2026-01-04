@@ -65,6 +65,33 @@ int main() {
             }
 
             scanf("%s", phnNum);
+            int isValid = 0; 
+            
+            if(OperatorChoice == 1) { 
+                if(strncmp(phnNum, "017", 3) == 0 || strncmp(phnNum, "013", 3) == 0) {
+                    isValid = 1;
+                }
+            }
+            else if(OperatorChoice == 2) { 
+                if(strncmp(phnNum, "018", 3) == 0 || strncmp(phnNum, "016", 3) == 0) { 
+                    isValid = 1;
+                }
+            }
+            else if(OperatorChoice == 3) { 
+                if(strncmp(phnNum, "019", 3) == 0 || strncmp(phnNum, "014", 3) == 0) {
+                    isValid = 1;
+                }
+            }
+            else if(OperatorChoice == 4) { 
+                if(strncmp(phnNum, "015", 3) == 0) {
+                    isValid = 1;
+                }
+            }
+
+            if(isValid == 0) {
+                printf("Error: Number does not match with the Operator prefix!\n");
+                break; 
+            }
             
             printf("Enter Ammount: ");
             scanf("%f", &amt);
