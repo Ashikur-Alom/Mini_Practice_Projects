@@ -2,435 +2,310 @@
 #include <string.h>
 
 int main() {
-int choice,submenu,pincode=3624;
-int biller;
-float amt;
-int amount=10000.23;
-char phnNum[10];
-char pin[10];
-char ref[100];
+    int choice, submenu, OperatorChoice, pincode = 3624;
+    int biller;
+    float amt;
+    float amount = 10000.23;
+    char phnNum[20];
+    int pin;
+    char ref[100];
+    char accountNo[20];
+    char monthYear[20];
 
-printf("Bkash\n");
-printf("1. Send Money\n");
-printf("2. Mobile Recharge\n");
-printf("3. Payment\n");
-printf("4. Cash Out\n");
-printf("5. Pay Bill\n");
-printf("6. Microfinance\n");
-printf("\n");
+    printf("Bkash\n");
+    printf("1. Send Money\n");
+    printf("2. Mobile Recharge\n");
+    printf("3. Payment\n");
+    printf("4. Cash Out\n");
+    printf("5. Pay Bill\n");
+    printf("6. Microfinance\n");
+    printf("\n");
 
-scanf("%d", &choice);
+    scanf("%d", &choice);
 
-switch(choice) {
-    case 1:
-        printf("Enter Reciever Account Number: ");
-        scanf("%s", &phnNum);
-        
-        printf("Enter Ammount: ");
-        scanf("%f", &amt);
-        
-        printf("Enter Refference: ");
-        scanf("%s", &ref);
-        
-        printf("Enter Your PIN Number To Confirm: ");
-        if(scanf("%s", &pin)==pincode) {
-            printf("Send Money Successful :)\n");
-        }else {
-            printf("Invalid PIN. Enter Your Valid PIN.\n");
-        }
-        
-        break;
-    
-    case 2:
-        int OperatorChoice;
-        
-        printf("Choice Your Operator\n");
-        printf("1. Grameenphone\n");
-        printf("2. Robi\n");
-        printf("3. Banglalink\n");
-        printf("4. Teletalk\n");
-        scanf("%d", &OperatorChoice);
-        
-        switch(OperatorChoice) {
-            case 1:
-                printf("Enter A Grameenphone Number To Recharge: ");
-                scanf("%s", &phnNum);
-                
-                printf("Enter Ammount: ");
-                scanf("%f", &amt);
-                if(amt<=amount) {
-                    printf("Enter Your PIN: ");
-                    if(scanf("%s", &pin)==pincode) {
-                        printf("Recharge Successful\n");
-                    }else {
-                        printf("Invalid PIN. Enter Your Valid PIN.\n");
-                    }
-                }else {
-                    printf("Insufficient Balance!\n");
-                }
-               break;
-               
-            case 2:
-                printf("Enter A Robi Number To Recharge: ");
-                scanf("%s", &phnNum);
-                
-                printf("Enter Ammount: ");
-                scanf("%f", &amt);
-                if(amt<=amount) {
-                    printf("Enter Your PIN: ");
-                    if(scanf("%s", &pin)==pincode) {
-                        printf("Recharge Successful\n");
-                    }else {
-                        printf("Invalid PIN. Enter Your Valid PIN.\n");
-                    }
-                }else {
-                    printf("Insufficient Balance!\n");
-                }
-               break;
-               
-            case 3:
-                printf("Enter A Banglalink Number To Recharge: ");
-                scanf("%s", &phnNum);
-                
-                printf("Enter Ammount: ");
-                scanf("%f", &amt);
-                if(amt<=amount) {
-                    printf("Enter Your PIN: ");
-                    if(scanf("%s", &pin)==pincode) {
-                        printf("Recharge Successful\n");
-                    }else {
-                        printf("Invalid PIN. Enter Your Valid PIN.\n");
-                    }
-                }else {
-                    printf("Insufficient Balance!\n");
-                }
-               break;
-               
-            case 4:
-                printf("Enter A Teletalk Number To Recharge: ");
-                scanf("%s", &phnNum);
-                
-                printf("Enter Ammount: ");
-                scanf("%f", &amt);
-                if(amt<=amount) {
-                    printf("Enter Your PIN: ");
-                    if(scanf("%s", &pin)==pincode) {
-                        printf("Recharge Successful\n");
-                    }else {
-                        printf("Invalid PIN. Enter Your Valid PIN.\n");
-                    }
-                }else {
-                    printf("Insufficient Balance!\n");
-                }
-               break;
-               
-            default:
-               printf("Invalid Option!\n");
-        }
-       break;    
-    
-    case 3:
-        printf("Enter Merchant Account Number: ");
-        scanf("%s", &phnNum);
-        
-        printf("Enter Ammount: ");
-        scanf("%f", &amt);
-        if(amt<=amount) {
-            printf("Enter Reference: ");
-            scanf("%s", &ref);
+    switch(choice) {
+        case 1:
+            printf("Enter Reciever Account Number: ");
+            scanf("%s", phnNum);
             
-            printf("Enter Your PIN: ");
-            if(scanf("%s", &pin)==pincode) {
-                printf("Recharge Successful\n");
-            }else {
-                printf("Invalid PIN. Enter Your Valid PIN.\n");
-            }
-        }else {
-            printf("Insufficient Balance!\n");
-        }
-        break;
-    
-    case 4:
-        printf("Enter Agent Account Number: ");
-        scanf("%s", &phnNum);
-        
-        printf("Enter Ammount: ");
-        scanf("%f", &amt);
-        if(amt<=amount) {
-            printf("Enter Your PIN: ");
-            if(scanf("%s", &pin)==pincode) {
-                printf("Recharge Successful\n");
-            }else {
-                printf("Invalid PIN. Enter Your Valid PIN.\n");
-            }
-        }else {
-            printf("Insufficient Balance!\n");
-        }
-        break;
-        
-    case 5:
-        printf("1. Electricity (Prepaid)\n");
-        printf("2. Electricity (Postpaid)\n");
-        printf("3. Gas\n");
-        printf("4. Water\n");
-        printf("5. Internet And Phone\n");
-        printf("TV\n");
-        printf("City Services\n");
-        
-        switch(submenu) {
-            case 1:
-
-                printf("Select Biller\n");
-                printf("1. NESCO\n");
-                printf("2. DESCO\n");
-                printf("3. DODC\n");
-                
-                if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-                    char accountNo[20];
-                    printf("Enter Account No: ");
-                    scanf("%s", &accountNo);
-                    
-                    printf("Enter Ammount: ");
-                    scanf("%f", &amt);
-                    if(amt<=amount) {
-                        printf("Enter Your PIN: ");
-                        if(scanf("%s", &pin)==pincode) {
-                            printf("Recharge Successful\n");
-                        }else {
-                            printf("Invalid PIN. Enter Your Valid PIN.\n");
-                        }
-                    }else {
-                        printf("Insufficient Balance!\n");
-                    }
-                }else {
-                    printf("Invalid Option!\n");
-                }
-                break;
-                
-            case 2:
-                
-                printf("Select Biller\n");
-                printf("1. NESCO\n");
-                printf("2. DESCO\n");
-                printf("3. DODC\n");
-                
-                if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-                    char accountNo[20];
-                    printf("Enter Account No: ");
-                    scanf("%s", &accountNo);
-                    
-                    printf("Enter Ammount: ");
-                    scanf("%f", &amt);
-                    if(amt<=amount) {
-                        printf("Enter Your PIN: ");
-                        if(scanf("%s", &pin)==pincode) {
-                            printf("Recharge Successful\n");
-                        }else {
-                            printf("Invalid PIN. Enter Your Valid PIN.\n");
-                        }
-                    }else {
-                        printf("Insufficient Balance!\n");
-                    }
-                }else {
-                    printf("Invalid Option!\n");
-                }
-                break;
-                
-            case 3:
-               
-                printf("Select Biller\n");
-                printf("1. Jalalabad\n");
-                printf("2. Sundarban\n");
-                printf("3. Jamuna\n");
-                
-                if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-                    char accountNo[20];
-                    printf("Enter Account No: ");
-                    scanf("%s", &accountNo);
-                    
-                    printf("Enter Ammount: ");
-                    scanf("%f", &amt);
-                    if(amt<=amount) {
-                        printf("Enter Your PIN: ");
-                        if(scanf("%s", &pin)==pincode) {
-                            printf("Recharge Successful\n");
-                        }else {
-                            printf("Invalid PIN. Enter Your Valid PIN.\n");
-                        }
-                    }else {
-                        printf("Insufficient Balance!\n");
-                    }
-                }else {
-                    printf("Invalid Option!\n");
-                }
-                break;
-                
-            case 4:
-               
-                printf("Select Biller\n");
-                printf("1. DHAKA WASA\n");
-                printf("2. CTG WASA\n");
-                printf("3. RANGPUR WASA\n");
-                
-                if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-                    char accountNo[20];
-                    printf("Enter Account No: ");
-                    scanf("%s", &accountNo);
-                    
-                    printf("Enter Ammount: ");
-                    scanf("%f", &amt);
-                    if(amt<=amount) {
-                        printf("Enter Your PIN: ");
-                        if(scanf("%s", &pin)==pincode) {
-                            printf("Recharge Successful\n");
-                        }else {
-                            printf("Invalid PIN. Enter Your Valid PIN.\n");
-                        }
-                    }else {
-                        printf("Insufficient Balance!\n");
-                    }
-                }else {
-                    printf("Invalid Option!\n");
-                }
-                break;
-                
-            case 5:
-                
-                printf("Select ISP\n");
-                printf("1. Link3\n");
-                printf("2. Amber IT\n");
-                printf("3. Dot Net\n");
-                
-                if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-                    char accountNo[20];
-                    printf("Enter Account No/User ID: ");
-                    scanf("%s", &accountNo);
-                    
-                    printf("Enter Ammount: ");
-                    scanf("%f", &amt);
-                    if(amt<=amount) {
-                        printf("Enter Your PIN: ");
-                        if(scanf("%s", &pin)==pincode) {
-                            printf("Recharge Successful\n");
-                        }else {
-                            printf("Invalid PIN. Enter Your Valid PIN.\n");
-                        }
-                    }else {
-                        printf("Insufficient Balance!\n");
-                    }
-                }else {
-                    printf("Invalid Option!\n");
-                }
-                break;
-                
-            case 6:
-                
-                printf("Select Provider\n");
-                printf("1. Akash DTH\n");
-                printf("2. Jadoo Digital\n");
-                printf("3. Bengal Digital\n");
-                
-                if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-                    char accountNo[20];
-                    printf("Enter Subscriber ID: ");
-                    scanf("%s", &accountNo);
-                    
-                    printf("Enter Ammount: ");
-                    scanf("%f", &amt);
-                    if(amt<=amount) {
-                        printf("Enter Your PIN: ");
-                        if(scanf("%s", &pin)==pincode) {
-                            printf("Recharge Successful\n");
-                        }else {
-                            printf("Invalid PIN. Enter Your Valid PIN.\n");
-                        }
-                    }else {
-                        printf("Insufficient Balance!\n");
-                    }
-                }else {
-                    printf("Invalid Option!\n");
-                }
-                break;
-                
-            case 7:
-                
-                printf("Select Organization\n");
-                printf("1. DNCC\n");
-                printf("2. DSCC\n");
-                printf("3. GCC\n");
-                
-                if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-                    char accountNo[20];
-                    char monthYear[10];
-                    printf("Enter Account No: ");
-                    scanf("%s", &accountNo);
-                    
-                    printf("Enter Month and Year: ");
-                    scanf("%s", &monthYear);
-                    
-                    printf("Enter Ammount: ");
-                    scanf("%f", &amt);
-                    if(amt<=amount) {
-                        printf("Enter Your PIN: ");
-                        if(scanf("%s", &pin)==pincode) {
-                            printf("Recharge Successful\n");
-                        }else {
-                            printf("Invalid PIN. Enter Your Valid PIN.\n");
-                        }
-                    }else {
-                        printf("Insufficient Balance!\n");
-                    }
-                }else {
-                    printf("Invalid Option!\n");
-                }
-                break;
-            
-            default:
-                printf("Invalid Option!\n");
-        }
-        
-    case 6:
-        
-        printf("Select Organization\n");
-        printf("1. BURO Bangladesh\n");
-        printf("2. UDDIPAN\n");
-        printf("3. Shakti Foundation\n");
-                
-        if(scanf("%d", &biller)==1 || scanf("%d", &biller)==2|| scanf("%d", &biller)==3) {
-                    
-            char accountNo[20];
-            printf("Enter Member/Account ID: ");
-            scanf("%s", &accountNo);
-                    
             printf("Enter Ammount: ");
             scanf("%f", &amt);
-            if(amt<=amount) {
-                printf("Enter Your PIN: ");
-                if(scanf("%s", &pin)==pincode) {
-                    printf("Recharge Successful\n");
-                }else {
+            if(amt==amount) {
+                printf("Enter Refference: ");
+                scanf("%s", ref);
+            
+                printf("Enter Your PIN Number To Confirm: ");
+                scanf("%d", &pin);
+
+                if(pin == pincode) {
+                    printf("Send Money Successful :)\n");
+                } else {
                     printf("Invalid PIN. Enter Your Valid PIN.\n");
                 }
             }else {
                 printf("Insufficient Balance!\n");
             }
-        }else {
-            printf("Invalid Option!\n");
-        }
-        break;
-    
-    default:
-        printf("Invalid Option!\n");    
-}
-    
+            break;
+        
+        case 2:
+            printf("Choice Your Operator\n");
+            printf("1. Grameenphone\n");
+            printf("2. Robi\n");
+            printf("3. Banglalink\n");
+            printf("4. Teletalk\n");
+            scanf("%d", &OperatorChoice);
+            
+            if(OperatorChoice == 1) printf("Enter A Grameenphone Number To Recharge: ");
+            else if(OperatorChoice == 2) printf("Enter A Robi Number To Recharge: ");
+            else if(OperatorChoice == 3) printf("Enter A Banglalink Number To Recharge: ");
+            else if(OperatorChoice == 4) printf("Enter A Teletalk Number To Recharge: ");
+            else {
+                printf("Invalid Operator\n");
+                return 0;
+            }
 
+            scanf("%s", phnNum);
+            
+            printf("Enter Ammount: ");
+            scanf("%f", &amt);
+            if(amt <= amount) {
+                printf("Enter Your PIN: ");
+                scanf("%d", &pin);
+                if(pin == pincode) {
+                    printf("Recharge Successful\n");
+                } else {
+                    printf("Invalid PIN. Enter Your Valid PIN.\n");
+                }
+            } else {
+                printf("Insufficient Balance!\n");
+            }
+            break;
+            
+        case 3:
+            printf("Enter Merchant Account Number: ");
+            scanf("%s", phnNum);
+            
+            printf("Enter Ammount: ");
+            scanf("%f", &amt);
+            if(amt <= amount) {
+                printf("Enter Reference: ");
+                scanf("%s", ref);
+                
+                printf("Enter Your PIN: ");
+                scanf("%d", &pin);
+                if(pin == pincode) {
+                    printf("Payment Successful\n");
+                } else {
+                    printf("Invalid PIN. Enter Your Valid PIN.\n");
+                }
+            } else {
+                printf("Insufficient Balance!\n");
+            }
+            break;
+        
+        case 4:
+            printf("Enter Agent Account Number: ");
+            scanf("%s", phnNum);
+            
+            printf("Enter Ammount: ");
+            scanf("%f", &amt);
+            if(amt <= amount) {
+                printf("Enter Your PIN: ");
+                scanf("%d", &pin);
+                if(pin == pincode) {
+                    printf("Cash Out Successful\n");
+                } else {
+                    printf("Invalid PIN. Enter Your Valid PIN.\n");
+                }
+            } else {
+                printf("Insufficient Balance!\n");
+            }
+            break;
+            
+        case 5:
+            printf("1. Electricity (Prepaid)\n");
+            printf("2. Electricity (Postpaid)\n");
+            printf("3. Gas\n");
+            printf("4. Water\n");
+            printf("5. Internet And Phone\n");
+            printf("6. TV\n");
+            printf("7. City Services\n");
+            
+            scanf("%d", &submenu);
+            
+            switch(submenu) {
+                case 1:
+                    printf("Select Biller\n");
+                    printf("1. NESCO\n");
+                    printf("2. DESCO\n");
+                    printf("3. DODC\n");
+                    
+                    scanf("%d", &biller);
+                    if(biller == 1 || biller == 2 || biller == 3) {
+                        printf("Enter Account No: ");
+                        scanf("%s", accountNo);
+                        
+                        printf("Enter Ammount: ");
+                        scanf("%f", &amt);
+                        if(amt <= amount) {
+                            printf("Enter Your PIN: ");
+                            scanf("%d", &pin);
+                            if(pin == pincode) {
+                                printf("Bill Pay Successful\n");
+                            } else {
+                                printf("Invalid PIN. Enter Your Valid PIN.\n");
+                            }
+                        } else {
+                            printf("Insufficient Balance!\n");
+                        }
+                    } else {
+                        printf("Invalid Option!\n");
+                    }
+                    break;
+                    
+                case 2:
+                    printf("Select Biller\n");
+                    printf("1. NESCO\n");
+                    printf("2. DESCO\n");
+                    printf("3. DODC\n");
+                    
+                    scanf("%d", &biller);
+                    if(biller == 1 || biller == 2 || biller == 3) {
+                        printf("Enter Account No: ");
+                        scanf("%s", accountNo);
+                        printf("Enter Ammount: ");
+                        scanf("%f", &amt);
+                        if(amt <= amount) {
+                            printf("Enter Your PIN: ");
+                            scanf("%d", &pin);
+                            if(pin == pincode) printf("Bill Pay Successful\n");
+                            else printf("Invalid PIN. Enter Your Valid PIN.\n");
+                        } else printf("Insufficient Balance!\n");
+                    } else printf("Invalid Option!\n");
+                    break;
+                    
+                case 3:
+                    printf("Select Biller\n");
+                    printf("1. Jalalabad\n");
+                    printf("2. Sundarban\n");
+                    printf("3. Jamuna\n");
+                    
+                    scanf("%d", &biller);
+                    if(biller == 1 || biller == 2 || biller == 3) {
+                        printf("Enter Account No: ");
+                        scanf("%s", accountNo);
+                        printf("Enter Ammount: ");
+                        scanf("%f", &amt);
+                        if(amt <= amount) {
+                            printf("Enter Your PIN: ");
+                            scanf("%d", &pin);
+                            if(pin == pincode) printf("Bill Pay Successful\n");
+                            else printf("Invalid PIN. Enter Your Valid PIN.\n");
+                        } else printf("Insufficient Balance!\n");
+                    } else printf("Invalid Option!\n");
+                    break;
+
+                case 4:
+                    printf("Select Biller\n");
+                    printf("1. DHAKA WASA\n");
+                    printf("2. CTG WASA\n");
+                    printf("3. RANGPUR WASA\n");
+                    
+                    scanf("%d", &biller);
+                    if(biller == 1 || biller == 2 || biller == 3) {
+                        printf("Enter Account No: ");
+                        scanf("%s", accountNo);
+                        printf("Enter Ammount: ");
+                        scanf("%f", &amt);
+                        if(amt <= amount) {
+                            printf("Enter Your PIN: ");
+                            scanf("%d", &pin);
+                            if(pin == pincode) printf("Bill Pay Successful\n");
+                            else printf("Invalid PIN. Enter Your Valid PIN.\n");
+                        } else printf("Insufficient Balance!\n");
+                    } else printf("Invalid Option!\n");
+                    break;
+
+                case 5:
+                    printf("Select ISP\n");
+                    printf("1. Link3\n");
+                    printf("2. Amber IT\n");
+                    printf("3. Dot Net\n");
+                    
+                    scanf("%d", &biller);
+                    if(biller == 1 || biller == 2 || biller == 3) {
+                        printf("Enter User ID: ");
+                        scanf("%s", accountNo);
+                        printf("Enter Ammount: ");
+                        scanf("%f", &amt);
+                        if(amt <= amount) {
+                            printf("Enter Your PIN: ");
+                            scanf("%d", &pin);
+                            if(pin == pincode) printf("Bill Pay Successful\n");
+                            else printf("Invalid PIN. Enter Your Valid PIN.\n");
+                        } else printf("Insufficient Balance!\n");
+                    } else printf("Invalid Option!\n");
+                    break;
+                
+                case 7:
+                    printf("Select Organization\n");
+                    printf("1. DNCC\n");
+                    printf("2. DSCC\n");
+                    printf("3. GCC\n");
+                    
+                    scanf("%d", &biller);
+                    if(biller == 1 || biller == 2 || biller == 3) {
+                        printf("Enter Account No: ");
+                        scanf("%s", accountNo);
+                        printf("Enter Month and Year: ");
+                        scanf("%s", monthYear);
+                        printf("Enter Ammount: ");
+                        scanf("%f", &amt);
+                        if(amt <= amount) {
+                            printf("Enter Your PIN: ");
+                            scanf("%d", &pin);
+                            if(pin == pincode) printf("Bill Pay Successful\n");
+                            else printf("Invalid PIN. Enter Your Valid PIN.\n");
+                        } else printf("Insufficient Balance!\n");
+                    } else printf("Invalid Option!\n");
+                    break;
+
+                default:
+                    printf("Invalid Option!\n");
+            }
+            break;
+            
+        case 6:
+            printf("Select Organization\n");
+            printf("1. BURO Bangladesh\n");
+            printf("2. UDDIPAN\n");
+            printf("3. Shakti Foundation\n");
+            
+            scanf("%d", &biller);
+            if(biller == 1 || biller == 2 || biller == 3) {
+                printf("Enter Member/Account ID: ");
+                scanf("%s", accountNo);
+                printf("Enter Ammount: ");
+                scanf("%f", &amt);
+                if(amt <= amount) {
+                    printf("Enter Your PIN: ");
+                    scanf("%d", &pin);
+                    if(pin == pincode) {
+                        printf("Payment Successful\n");
+                    } else {
+                        printf("Invalid PIN. Enter Your Valid PIN.\n");
+                    }
+                } else {
+                    printf("Insufficient Balance!\n");
+                }
+            } else {
+                printf("Invalid Option!\n");
+            }
+            break;
+        
+        default:
+            printf("Invalid Option!\n");
+    }
     
     return 0;
 }
